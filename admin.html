@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VCP Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div class="container admin-header-content">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><span></span></span>
+        <span class="brand-text">
+          <span class="brand-name">VCP</span>
+          <span class="brand-subtitle">Hardware Tools</span>
+        </span>
+      </a>
+      <div class="admin-header-actions">
+        <span class="admin-badge">Admin Dashboard</span>
+        <a href="index.html" class="btn btn-ghost btn-sm">Back to Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-hero">
+      <div class="container admin-hero-content">
+        <div>
+          <span class="mini-title">VCP Customer Requests</span>
+          <h1>Lead Management</h1>
+          <p class="admin-subtitle">Manage customer, callback, and supply-list enquiries.</p>
+        </div>
+        <div class="admin-actions">
+          <button id="refresh-leads" class="btn btn-primary">Refresh</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-stats">
+      <div class="container admin-stat-grid">
+        <article class="admin-stat-card">
+          <span class="stat-label">Total Requests</span>
+          <span id="total-leads" class="stat-number">0</span>
+        </article>
+        <article class="admin-stat-card">
+          <span class="stat-label">Customer Requests</span>
+          <span id="customer-count" class="stat-number">0</span>
+        </article>
+        <article class="admin-stat-card">
+          <span class="stat-label">Call Back Requests</span>
+          <span id="callback-count" class="stat-number">0</span>
+        </article>
+        <article class="admin-stat-card">
+          <span class="stat-label">Supply List Requests</span>
+          <span id="supply-count" class="stat-number">0</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-content">
+      <div class="container">
+        <div class="admin-panel">
+          <div class="admin-panel-head">
+            <div>
+              <span class="mini-title">Recent Submissions</span>
+              <h2>All User Inputs</h2>
+            </div>
+            <div class="admin-filters">
+              <select id="lead-type-filter">
+                <option value="all">All requests</option>
+                <option value="customer">Become a VCP customer</option>
+                <option value="callback">Request a call back</option>
+                <option value="supply-list">Join the VCP supply list</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Submitted</th>
+                  <th>Request Type</th>
+                  <th>Submitted By</th>
+                  <th>Contact</th>
+                  <th>Message</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <tr>
+                  <td colspan="6" class="empty-row">No enquiries found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
